@@ -1,0 +1,2 @@
+Baixe o bootstrap 3.x em http://getbootstrap.com/
+Ponha as pastas css, js e fonts nesta pasta.
