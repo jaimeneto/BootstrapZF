@@ -22,7 +22,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
 
-                <?php echo $this->navbar($this->container); ?>
+                <?php echo $this->navbar(Zend_Registry::get('Zend_Navigation')->findById('homepage')); ?>
 
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group input-group">
@@ -38,6 +38,8 @@
     
     <div class="container">
     
+        <?php echo $this->breadcrumbs(); ?>
+        
         <h1>Bootstrap Library for Zend Framework</h1>
             
         <?php echo $this->layout()->content; ?>
