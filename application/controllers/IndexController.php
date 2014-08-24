@@ -118,10 +118,25 @@ class IndexController extends Zend_Controller_Action
             'iconLeft'   => 'glyphicon glyphicon-floppy-disk'
         ));
         
-        if ($this->getRequest()->isPost() && !$form->isValid($this->getRequest()->getPost())) {
-            $this->getHelper('Alerts')->addDanger('Dados inválidos ou faltando');
-        }
+        $form->addDisplayGroup(array('back', 'reset', 'submit'), 'buttons', array(
+            'decorators' => array(
+                'FormElements', 
+                array('HtmlTag', array(
+                    'class' => 'col-sm-offset-2', 
+                    'tag' => 'div')
+                )
+            ),
+        ));
+    
+        $paginator = Zend_Paginator::factory(array(
+            0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
+            0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
+            0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
+        ));
+        $paginator->setItemCountPerPage(5);
+        $paginator->setCurrentPageNumber(11);
         
+        $this->view->paginator = $paginator;        
         $this->view->form = $form;
     }
     
