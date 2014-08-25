@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     
     <!-- Bootstrap core CSS -->
-    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo $this->baseUrl('bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
 
     <!-- Optional Bootstrap Theme -->
-    <link href="./bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
+    <link href="<?php echo $this->baseUrl('bootstrap/css/bootstrap-theme.min.css'); ?>" rel="stylesheet" id="bs-theme-stylesheet">
 </head>
 <body>
 
@@ -36,15 +36,17 @@
         </div><!-- /.container-fluid -->
     </nav>
     
-    <div class="container">
+    <main class="container">
     
         <?php echo $this->breadcrumbs(); ?>
         
         <h1>Bootstrap Library for Zend Framework</h1>
             
-        <?php echo $this->layout()->content; ?>
+        <article>
+            <?php echo $this->layout()->content; ?>
+        </article>
 
-    </div>
+    </main>
     
     <footer class="text-center">
         <div class="container">
@@ -53,6 +55,6 @@
     </footer>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo $this->baseUrl('bootstrap/js/bootstrap.min.js'); ?>"></script>
 </body>
 </html>
