@@ -67,8 +67,13 @@ class Application_Form_Test extends Bootstrap_Form_Horizontal
             'label'       => 'Search',
         ));
         
+        $this->addElement('textarea', 'textarea', array(
+            'label'       => 'Textarea',
+            'rows'        => 5
+        ));
+        
         $this->addElement('checkbox', 'checkme', array(
-            'label'    => 'Check on not check', 
+            'label'    => 'Check or not check', 
         ));
         
         $this->addElement('multiCheckbox', 'checkallme', array(
