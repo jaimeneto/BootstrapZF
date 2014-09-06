@@ -29,7 +29,7 @@ class Bootstrap_View_Helper_FormCheckbox extends Zend_View_Helper_FormCheckbox
             unset($attribs['inputLabel']);
         }
 
-        $html = parent::formCheckbox($name, $value, $attribs, $checkedOptions);
+        $xhtml = parent::formCheckbox($name, $value, $attribs, $checkedOptions);
 
         if (!isset($attribs['escape']) || $attribs['escape']) {
             $inputLabel = $this->view->escape($inputLabel);
@@ -38,9 +38,9 @@ class Bootstrap_View_Helper_FormCheckbox extends Zend_View_Helper_FormCheckbox
         // Wraps the checkbox with its own label (not the decorator one),
         // if the attrib input_label is added
         if ($inputLabel) {
-            $html = '<label>' . $html . $inputLabel . '</label>';
+            $xhtml = '<label>' . $xhtml . $inputLabel . '</label>';
         }
 
-        return $html;
+        return $xhtml;
     }
 }

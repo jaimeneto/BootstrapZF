@@ -35,7 +35,7 @@ class Bootstrap_View_Helper_Pagination
      * @param  Zend_Paginator (Optional) $paginator
      * @param  array|string $params (Optional) params to pass to the partial
      * @return string
-     * @throws Bootstrap_View_Exception
+     * @throws Zend_View_Exception
      */
     public function pagination(Zend_Paginator $paginator = null, 
             $pageParam = 'page', $size = 'default')
@@ -46,7 +46,12 @@ class Bootstrap_View_Helper_Pagination
                     && $this->view->paginator instanceof Zend_Paginator) {
                 $paginator = $this->view->paginator;
             } else {
-                $e = new Bootstrap_View_Exception('No paginator instance provided or incorrect type');
+                /**
+                 * @see Zend_View_Exception
+                 */
+                require_once 'Zend/View/Exception.php';
+
+                $e = new Zend_View_Exception('No paginator instance provided or incorrect type');
                 $e->setView($this->view);
                 throw $e;
             }
@@ -54,6 +59,8 @@ class Bootstrap_View_Helper_Pagination
 
         $pages = get_object_vars($paginator->getPages());
         
+//        pr(array($params, $pages),1);
+
         $sizeClass = $size && isset($this->_sizes[$size])
                    ? $this->_sizes[$size] : '';
         
@@ -63,18 +70,16 @@ class Bootstrap_View_Helper_Pagination
             $html .= '<ul class="pagination' . $sizeClass . '">' . PHP_EOL;
             if (isset($pages['previous'])) {
                 $html .= '<li><a href="' . $this->view->url(array($pageParam => $pages['first'])) . '">'
-                       . '&laquo;</a></li>' . PHP_EOL;
+                       . '&laquo;</a></li>';
             } else {
-                $html .= '<li class="disabled"><span>&laquo;</span></li>' 
-                       . PHP_EOL;
+                $html .= '<li class="disabled"><span>&laquo;</span></li>';
             }
 
             if (isset($pages['previous'])) {
                 $html .= '<li><a href="' . $this->view->url(array($pageParam => $pages['previous'])) . '">'
-                       . '&lsaquo;</a></li>' . PHP_EOL;
+                       . '&lsaquo;</a></li>';
             } else {
-                $html .= '<li class="disabled"><span>&lsaquo;</span></li>'
-                       . PHP_EOL;
+                $html .= '<li class="disabled"><span>&lsaquo;</span></li>';
             }
 
             foreach ($pages['pagesInRange'] as $page) {
@@ -85,25 +90,23 @@ class Bootstrap_View_Helper_Pagination
                 }
                 
                 $html .= '<a href="' . $this->view->url(array($pageParam => $page)) . '">' 
-                       . $page . '</a></li>' . PHP_EOL;
+                       . $page . '</a></li>';
             }
             
             if (isset($pages['next'])) {
                 $html .= '<li><a href="' . $this->view->url(array($pageParam => $pages['next'])) . '">'
-                      . '&rsaquo;</a></li>' . PHP_EOL;
+                      . '&rsaquo;</a></li>';
             } else {
-                $html .= '<li class="disabled"><span>&rsaquo;</span></li>' 
-                       . PHP_EOL;
+                $html .= '<li class="disabled"><span>&rsaquo;</span></li>';
             }
 
             if (isset($pages['next'])) {
                 $html .= '<li><a href="' . $this->view->url(array($pageParam => $pages['last'])) . '">'
-                       . '&raquo;</a></li>' . PHP_EOL;
+                       . '&raquo;</a></li>';
             } else {
-                $html .= '<li class="disabled"><span>&raquo;</span></li>'
-                       . PHP_EOL;
+                $html .= '<li class="disabled"><span>&raquo;</span></li>';
             }
-            $html .= '</ul>';
+            $html .= PHP_EOL . '</ul>';
         }
                 
         return $html;

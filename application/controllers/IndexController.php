@@ -15,12 +15,12 @@ class IndexController extends Zend_Controller_Action
         if ($this->_request->isPost()) {
             $data = $this->_request->getPost();
             if ($form->isValid($data)) {
-                $this->getHelper('Alerts')->addSuccess('<strong>Success: </strong>Data successfully submited', false);
+                $this->getHelper('Alerts')->addSuccess('Data successfully submited');
             } else {
-                $this->getHelper('Alerts')->addDanger('<strong>Error: </strong>The form contain errors', false);
+                $this->getHelper('Alerts')->addDanger('The form contain errors');
             }
         } else {
-            $this->getHelper('Alerts')->addInfo('<strong>Info: </strong>Submit the form to see an alert', false);
+            $this->getHelper('Alerts')->addInfo('Submit the form to see an alert');
         }
         
         $carousel = array(

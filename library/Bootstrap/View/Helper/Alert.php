@@ -46,21 +46,21 @@ class Bootstrap_View_Helper_Alert extends Zend_View_Helper_Abstract
             ? $this->view->escape($this->view->translate($text))
             : $this->view->translate($text);
         
-        $html = '<' . $tag . ' class="' . $class . '" role="alert">';
+        $xhtml = '<' . $tag . ' class="' . $class . '" role="alert">';
         
         if ($closeButton) {
-            $html .= PHP_EOL 
-                  . '<button type="button" class="close" data-dismiss="alert">' 
-                  . '<span aria-hidden="true">&times;</span>' 
-                  . '<span class="sr-only">' 
-                  . $this->view->translate('Close')
-                  . '</span>' 
-                  . '</button>' . PHP_EOL;
+            $xhtml .= PHP_EOL 
+                   . '<button type="button" class="close" data-dismiss="alert">' 
+                   . '<span aria-hidden="true">&times;</span>' 
+                   . '<span class="sr-only">' 
+                   . $this->view->translate('Close')
+                   . '</span>' 
+                   . '</button>' . PHP_EOL;
         }
         
-        $html .= $text . '</' . $tag . '>' . PHP_EOL;
+        $xhtml .= $text . '</' . $tag . '>' . PHP_EOL;
      
-        return $html;
+        return $xhtml;
     }
 
 }
