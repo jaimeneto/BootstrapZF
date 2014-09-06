@@ -34,20 +34,20 @@ class Bootstrap_View_Helper_Alerts extends Zend_View_Helper_Abstract
             return '';
         }
         
-        $xhtml = '<ul class="list-unstyled"';
+        $html = '<ul class="list-unstyled"';
 
         if ($id) {
-            $xhtml .= ' id="' . $this->view->escape($id) . '"';
+            $html .= ' id="' . $this->view->escape($id) . '"';
         }
 
-        $xhtml .= '>' . PHP_EOL;
+        $html .= '>' . PHP_EOL;
 
         foreach($messages as $message) {
-            $xhtml .= $this->view->alert($message['text'], $message['type'], 
+            $html .= $this->view->alert($message['text'], $message['type'], 
                                 $closeButton, $message['escape'], $tag='li');
         }
-        $xhtml .= '</ul>';
-        return $xhtml;
+        $html .= '</ul>';
+        return $html;
     }
 
     public function uniqueMessages(array &$messages)

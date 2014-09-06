@@ -31,7 +31,7 @@ class Bootstrap_View_Helper_FormStaticText extends Zend_View_Helper_FormElement
      *
      * @param array $attribs Attributes for the element tag.
      *
-     * @return string The element XHTML.
+     * @return string The element HTML.
      */
     public function formStaticText($name, $value = null, $attribs = null)
     {

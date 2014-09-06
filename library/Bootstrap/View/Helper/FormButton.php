@@ -54,17 +54,17 @@ class Bootstrap_View_Helper_FormButton extends Zend_View_Helper_FormElement
         }
         
         // Render the button.
-        $xhtml = '<button type="' . $this->_buttonType . '"'
-               . ' name="' . $this->view->escape($name) . '"'
-               . $id
-               . ' value="' . $this->view->escape($value) . '"'
-               . $disabled
-               . $this->_htmlAttribs($attribs)
-               . '>'
-               . $value
-               . '</button>';
+        $html = '<button type="' . $this->_buttonType . '"'
+              . ' name="' . $this->view->escape($name) . '"'
+              . $id
+              . ' value="' . $this->view->escape($value) . '"'
+              . $disabled
+              . $this->_htmlAttribs($attribs)
+              . '>'
+              . $value
+              . '</button>';
 
-        return $xhtml;
+        return $html;
     }
     
 }
