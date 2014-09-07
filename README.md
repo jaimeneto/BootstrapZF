@@ -3,8 +3,7 @@
 <p>BootstrapZF is a library for <a href="http://www.zendframework.com/manual/1.12/en/manual.html" target="_blank">Zend Framework 1</a> with components to create <a href="http://getbootstrap.com/" target="_blank">Bootstrap 3</a> elements.</p>
 
 <h2 id="howtouse">How to use</h2>
-<hr>
-        
+
 - Download <strong>BootstrapZF</strong> and put the <code>library/Bootstrap</code> folder in your Zend Framework project's <code>library</code> folder;
 - Download <strong>Bootstrap 3</strong> in <a href="http://getbootstrap.com/" target="_blank">http://getbootstrap.com</a> and put it in your Zend Framework project's <code>public</code> folder;
 - Download <strong>Jquery</strong> in <a href="http://jquery.com/download/" target="_blank">http://jquery.com/download/</a> and put it in your Zend Framework project's <code>public</code> folder;
@@ -21,15 +20,14 @@ resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper =
 </pre>
 - Use the library classes in your project.
 
-<h2 id="components">Components</h2>
 
-<hr>
+<h2 id="components">Components</h2>
 
 <h3 id="alerts">Alerts</h3>
 
-        <p>Creates a <a href="http://getbootstrap.com/components/#alerts" target="_blank">Bootstrap's alert component</a> or a list of them.</p>
+<p>Creates a <a href="http://getbootstrap.com/components/#alerts" target="_blank">Bootstrap's alert component</a> or a list of them.</p>
 
-        <h4>Bootstrap_View_Helper_Alert</h4>
+<h4>Bootstrap_View_Helper_Alert</h4>
 <pre>
 <span class="text-muted">/**
  * $text        The message you want to appear
@@ -41,10 +39,9 @@ resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper =
 </span>
 <strong>&lt;?php echo $this-&gt;alert('&lt;strong&gt;Error! &lt;/strong&gt; An error occurred!', 'danger', false, false, 'p'); ?&gt;</strong></pre>
 
+<h4>Bootstrap_Controller_Action_Helper_Alerts</h4>
 
-        <h4>Bootstrap_Controller_Action_Helper_Alerts</h4>
-
-        <p>Add the messages in you controller action using the <code>Bootstrap_Controller_Action_Helper_Alerts</code></p>
+<p>Add the messages in you controller action using the <code>Bootstrap_Controller_Action_Helper_Alerts</code></p>
 <pre>
 <span class="text-muted">/**
  * $text        The message you want to appear
@@ -62,8 +59,8 @@ resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper =
 <strong>$this-&gt;getHelper('Alerts')-&gt;addDanger('&lt;strong&gt;Success: &lt;/strong&gt;This is a danger message.', false);</strong>
 </pre>
 
-        <h4>Bootstrap_View_Helper_Alerts</h4>
-        <p>After adding the messages in the controller action with the <code>Bootstrap_Controller_Action_Helper_Alerts</code>, you call the <code>Bootstrap_View_Helper_Alerts</code> to show them:</p>
+<h4>Bootstrap_View_Helper_Alerts</h4>
+<p>After adding the messages in the controller action with the <code>Bootstrap_Controller_Action_Helper_Alerts</code>, you call the <code>Bootstrap_View_Helper_Alerts</code> to show them:</p>
 <pre>
 <span class="text-muted">/**
  * $closeButton    Set false if you do not want the close button (X) appears
@@ -73,11 +70,10 @@ resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper =
 <strong>&lt;?php echo $this-&gt;alerts(true, true, 'messages'); ?&gt;</strong>
 </pre>
 
-        <hr>
 
-        <h3 id="carousel">Carousel</h3>
+<h3 id="carousel">Carousel</h3>
 
-        <p>Creates an image slideshow using <a href="http://getbootstrap.com/javascript/#carousel" target="_blank">Bootstrap's carousel component</a>.</p>
+<p>Creates an image slideshow using <a href="http://getbootstrap.com/javascript/#carousel" target="_blank">Bootstrap's carousel component</a>.</p>
 
         <h4>Bootstrap_View_Helper_Carousel</h4>
 
@@ -114,13 +110,12 @@ resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper =
     'showControls'   =&gt; true
 )); ?&gt;</pre>
 
-        <hr>
 
-        <h3 id="pagination">Pagination</h3>
+<h3 id="pagination">Pagination</h3>
 
-        <p>Creates a <a href="http://getbootstrap.com/components/#pagination" target="_blank">Bootstrap's pagination</a>.</p>
+<p>Creates a <a href="http://getbootstrap.com/components/#pagination" target="_blank">Bootstrap's pagination</a>.</p>
 
-        <h4>Bootstrap_View_Helper_Pagination</h4>
+<h4>Bootstrap_View_Helper_Pagination</h4>
 <pre>
 <span class="text-muted">/**
  * $paginator   A Zend_Paginator object. Let it null if you have defined a $this->paginator for the view
@@ -130,12 +125,12 @@ resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper =
 <strong>&lt;?php echo $this-&gt;pagination(null, 'p', 'sm'); ?&gt;</strong>
 </pre>
 
-    <hr>
-    <h3 id="navigation">Navigation</h3>
 
-        <p>Creates a <a href="http://getbootstrap.com/components/#navbar" target="_blank">Bootstrap's navbar</a>.</p>
+<h3 id="navigation">Navigation</h3>
 
-        <h4>Bootstrap_View_Helper_NavbarHeader</h4>
+<p>Creates a <a href="http://getbootstrap.com/components/#navbar" target="_blank">Bootstrap's navbar</a>.</p>
+
+<h4>Bootstrap_View_Helper_NavbarHeader</h4>
 <pre>
 <span class="text-muted">/**
  * $brand   Add the brand, site title or anything you want to be displayed in the navbar
@@ -169,35 +164,27 @@ echo $this-&gt;navbar($container);
 </pre>
 
         
-    <hr>
-    <h3 id="breadcrumbs">Breadcrumbs</h3>
+<h3 id="breadcrumbs">Breadcrumbs</h3>
 
-        <p>Creates a <a href="http://getbootstrap.com/components/#breadcrumbs" target="_blank">Bootstrap's breadcrumbs</a>.</p>
+<p>Creates a <a href="http://getbootstrap.com/components/#breadcrumbs" target="_blank">Bootstrap's breadcrumbs</a>.</p>
 
-        <h4>Bootstrap_View_Helper_Breadcrumbs</h4>
-        <p>Once you have configured a default Zend_Navigation in your project, you just have to call the view helper.</p>
+<h4>Bootstrap_View_Helper_Breadcrumbs</h4>
+<p>Once you have configured a default Zend_Navigation in your project, you just have to call the view helper.</p>
 <pre>
 <strong>&lt;?php echo $this-&gt;breadcrumbs(); ?&gt;</strong>
 </pre>        
         
-
         
-    <hr>
-    <h3 id="forms">Forms</h3>
+<h3 id="forms">Forms</h3>
 
-        <p>Creates a <a href="http://getbootstrap.com/css/#forms" target="_blank">Bootstrap's form</a>.</p>
+<p>Creates a <a href="http://getbootstrap.com/css/#forms" target="_blank">Bootstrap's form</a>.</p>
 
-        <h4>Bootstrap_Form</h4>
-        <p>First, create a new form in your controller. You can choose between 
-            one of the following types of form:<p>
-        <ul>
-            <li><code>Bootstrap_Form_Vertical</code>, creates a <a href="http://getbootstrap.com/css/#forms-example" target="_blank">Bootstrap's default form</a></li>
-            <li><code>Bootstrap_Form_Horizontal</code>, creates a <a href="http://getbootstrap.com/css/#forms-horizontal" target="_blank">Bootstrap's horizontal form</a></li>
-            <li><code>Bootstrap_Form_Inline</code>, creates a <a href="http://getbootstrap.com/css/#forms-inline" target="_blank">Bootstrap's inline form</a></li>
-        </ul> 
-        <p> Elements text, password, textarea, checkbox, multiCheckbox, radio, 
-            select, button, reset, submit and file where rebuilt to fit 
-            bootstrap's format.</p>
+<h4>Bootstrap_Form</h4>
+<p>First, create a new form in your controller. You can choose between one of the following types of form:<p>
+- <code>Bootstrap_Form_Vertical</code>, creates a <a href="http://getbootstrap.com/css/#forms-example" target="_blank">Bootstrap's default form</a>
+- <code>Bootstrap_Form_Horizontal</code>, creates a <a href="http://getbootstrap.com/css/#forms-horizontal" target="_blank">Bootstrap's horizontal form</a>
+- <code>Bootstrap_Form_Inline</code>, creates a <a href="http://getbootstrap.com/css/#forms-inline" target="_blank">Bootstrap's inline form</a>
+<p> Elements text, password, textarea, checkbox, multiCheckbox, radio, select, button, reset, submit and file where rebuilt to fit bootstrap's format.</p>
 <pre>
 <strong>$form = new Bootstrap_Form_Horizontal();
     
