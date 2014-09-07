@@ -172,8 +172,8 @@ echo $this-&gt;navbar($container);
         &lt;?php echo $this-&gt;navbarHeader('BootstrapZF', 'navbar-collapse-1'); ?&gt;
         &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-collapse-1&quot;&gt;
             &lt;?php 
-                $container = Zend_Registry::get('Zend_Navigation')-&gt;findById('homepage');
-                echo $this-&gt;navbar($container); 
+                $nav = Zend_Registry::get('Zend_Navigation')-&gt;findById('homepage');
+                echo $this-&gt;navbar($nav); 
             ?&gt;
         &lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
     &lt;/div&gt;&lt;!-- /.container-fluid --&gt;
