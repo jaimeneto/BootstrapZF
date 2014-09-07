@@ -1,10 +1,9 @@
 <h1>BootstrapZF</h1>
 
-        <p>BootstrapZF is a library for <a href="http://www.zendframework.com/manual/1.12/en/manual.html" target="_blank">Zend Framework 1</a> 
-        with components to create <a href="http://getbootstrap.com/" target="_blank">Bootstrap 3</a> elements.</p>
+<p>BootstrapZF is a library for <a href="http://www.zendframework.com/manual/1.12/en/manual.html" target="_blank">Zend Framework 1</a> with components to create <a href="http://getbootstrap.com/" target="_blank">Bootstrap 3</a> elements.</p>
 
-        <h2 id="howtouse">How to use</h2>
-        <hr>
+<h2 id="howtouse">How to use</h2>
+<hr>
         
 - Download <strong>BootstrapZF</strong> and put the <code>library/Bootstrap</code> folder in your Zend Framework project's <code>library</code> folder;
 - Download <strong>Bootstrap 3</strong> in <a href="http://getbootstrap.com/" target="_blank">http://getbootstrap.com</a> and put it in your Zend Framework project's <code>public</code> folder;
@@ -13,7 +12,7 @@
 <pre>
 &lt;link href=&quot;&lt;?php echo $this-&gt;baseUrl('bootstrap/css/bootstrap.min.css'); ?&gt;&quot; rel=&quot;stylesheet&quot;&gt;
 &lt;script src=&quot;&lt;?php echo $this-&gt;baseUrl('jquery/1.11.1/jquery.min.js'); ?&gt;&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;&lt;?php echo $this-&gt;baseUrl('bootstrap/js/bootstrap.min.js'); ?&gt;&quot;&gt;&lt;/script&gt;</pre>            
+&lt;script src=&quot;&lt;?php echo $this-&gt;baseUrl('bootstrap/js/bootstrap.min.js'); ?&gt;&quot;&gt;&lt;/script&gt;</pre>
 - Add the following lines to your <code>application.ini</code>:
 <pre>
 autoloaderNamespaces[] = "Bootstrap"
@@ -22,11 +21,11 @@ resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper =
 </pre>
 - Use the library classes in your project.
 
-        <h2 id="components">Components</h2>
+<h2 id="components">Components</h2>
 
-        <hr>
+<hr>
 
-        <h3 id="alerts">Alerts</h3>
+<h3 id="alerts">Alerts</h3>
 
         <p>Creates a <a href="http://getbootstrap.com/components/#alerts" target="_blank">Bootstrap's alert component</a> or a list of them.</p>
 
