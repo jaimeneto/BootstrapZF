@@ -11,8 +11,8 @@
 <pre>
 &lt;link href=&quot;&lt;?php echo $this-&gt;baseUrl('bootstrap/css/bootstrap.min.css'); ?&gt;&quot;
 rel=&quot;stylesheet&quot;&gt;
-&lt;script src=&quot;&lt;?php echo $this-&gt;baseUrl('jquery/1.11.1/jquery.min.js'); ?&gt;&quot;
-&gt;&lt;/script&gt;
+&lt;script src=&quot;&lt;?php echo $this-&gt;baseUrl('jquery/1.11.1/jquery.min.js'); ?&gt;&quot;&gt;
+&lt;/script&gt;
 &lt;script src=&quot;&lt;?php echo $this-&gt;baseUrl('bootstrap/js/bootstrap.min.js'); ?&gt;&quot;&gt;
 &lt;/script&gt;</pre>
 - Add the following lines to your <code>application.ini</code>:
