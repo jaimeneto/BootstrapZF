@@ -37,7 +37,8 @@ resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper =
  * $tag         If you want to change the default tag (div) to any other
  */
 </span>
-<strong>&lt;?php echo $this-&gt;alert('&lt;strong&gt;Error! &lt;/strong&gt; An error occurred!', 'danger', false, false, 'p'); ?&gt;</strong></pre>
+<strong>&lt;?php echo $this-&gt;alert('&lt;strong&gt;Error! &lt;/strong&gt; An error occurred!', 'danger', 
+false, false, 'p'); ?&gt;</strong></pre>
 
 <h4>Bootstrap_Controller_Action_Helper_Alerts</h4>
 
@@ -48,15 +49,22 @@ resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper =
  * $type        Can be alert [default], success, info, warning or danger
  * $escape      If you want to add html tags inside the message, set false
  */</span>
-<strong>$this-&gt;_helper-&gt;alerts('This is a direct message', 'success', true);</strong> <span class="text-muted">//You can call the direct method</span>
-<strong>$this-&gt;getHelper('Alerts')-&gt;addMessage('This is a message.', 'alert', true);</strong> <span class="text-muted">//Or you can call the method AddMessage</span>
+<span class="text-muted">//You can call the direct method</span>
+<strong>$this-&gt;_helper-&gt;alerts('This is a direct message', 'success', true);</strong>
+</strong> <span class="text-muted">//Or you can call the method AddMessage</span>
+<strong>$this-&gt;getHelper('Alerts')-&gt;addMessage('This is a message.', 'alert', true);
 
 <span class="text-muted">//Or you can call one of the methods for specific types of message</span>
-<strong>$this-&gt;getHelper('Alerts')-&gt;addAlert('&lt;strong&gt;Alert: &lt;/strong&gt;This is an alert message.', false);</strong>
-<strong>$this-&gt;getHelper('Alerts')-&gt;addSuccess('&lt;strong&gt;Success: &lt;/strong&gt;This is a success message.', false);</strong>
-<strong>$this-&gt;getHelper('Alerts')-&gt;addInfo('&lt;strong&gt;Info: &lt;/strong&gt;This is an info message.', false);</strong>
-<strong>$this-&gt;getHelper('Alerts')-&gt;addWarning('&lt;strong&gt;Success: &lt;/strong&gt;This is an warning message.', false);</strong>
-<strong>$this-&gt;getHelper('Alerts')-&gt;addDanger('&lt;strong&gt;Success: &lt;/strong&gt;This is a danger message.', false);</strong>
+<strong>$this-&gt;getHelper('Alerts')-&gt;addAlert('&lt;strong&gt;Alert: &lt;/strong&gt;This is an alert message',
+false);</strong>
+<strong>$this-&gt;getHelper('Alerts')-&gt;addSuccess('&lt;strong&gt;Success: &lt;/strong&gt;This is a success 
+message', false);</strong>
+<strong>$this-&gt;getHelper('Alerts')-&gt;addInfo('&lt;strong&gt;Info: &lt;/strong&gt;This is an info message',
+false);</strong>
+<strong>$this-&gt;getHelper('Alerts')-&gt;addWarning('&lt;strong&gt;Success: &lt;/strong&gt;This is an warning
+message', false);</strong>
+<strong>$this-&gt;getHelper('Alerts')-&gt;addDanger('&lt;strong&gt;Success: &lt;/strong&gt;This is a danger 
+message', false);</strong>
 </pre>
 
 <h4>Bootstrap_View_Helper_Alerts</h4>
@@ -101,8 +109,10 @@ resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper =
 
 <span class="text-muted">/**
  * $id       Set the id for the div the wrappers the carousel
- * $images   Array contining the list of images with options [src, caption-title, caption, alt]
- * $options  Array width boolean options [showCaption, showIndicators, showControls], default is true for all of them
+ * $images   Array contining the list of images with options 
+ *           [src, caption-title, caption, alt]
+ * $options  Array width boolean options [showCaption, showIndicators, 
+ *           showControls], default is true for all of them
  */</span>
 &lt;?php echo $this-&gt;carousel('generic_carousel', $images, array(
     'showCaption'    =&gt; true, 
@@ -118,9 +128,11 @@ resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper =
 <h4>Bootstrap_View_Helper_Pagination</h4>
 <pre>
 <span class="text-muted">/**
- * $paginator   A Zend_Paginator object. Let it null if you have defined a $this->paginator for the view
+ * $paginator   A Zend_Paginator object. Let it null if you have defined 
+ *              a $this->paginator for the view
  * $pageParam   Set the name for the page parameter [default = 'page']
- * $size        Set small (or sm) or large (or lg) if you want to change the default size
+ * $size        Set small (or sm) or large (or lg) if you want to change 
+ *              the default size
  */</span>
 <strong>&lt;?php echo $this-&gt;pagination(null, 'p', 'sm'); ?&gt;</strong>
 </pre>
@@ -133,8 +145,10 @@ resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper =
 <h4>Bootstrap_View_Helper_NavbarHeader</h4>
 <pre>
 <span class="text-muted">/**
- * $brand   Add the brand, site title or anything you want to be displayed in the navbar
- * $target  Set the name of the navbar target for the navbar toggle be used on small screens
+ * $brand   Add the brand, site title or anything you want to be displayed in the 
+ *          navbar
+ * $target  Set the name of the navbar target for the navbar toggle be used on small 
+ *          screens
  */</span>
 <strong>&lt;?php echo $this-&gt;navbarHeader('BootstrapZF', 'navbar-collapse-1'); ?&gt;</strong>
 </pre>
@@ -157,7 +171,10 @@ echo $this-&gt;navbar($container);
     &lt;div class=&quot;container-fluid&quot;&gt;
         &lt;?php echo $this-&gt;navbarHeader('BootstrapZF', 'navbar-collapse-1'); ?&gt;
         &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-collapse-1&quot;&gt;
-            &lt;?php echo $this-&gt;navbar(Zend_Registry::get('Zend_Navigation')-&gt;findById('homepage')); ?&gt;
+            &lt;?php 
+                $container = Zend_Registry::get('Zend_Navigation')-&gt;findById('homepage');
+                echo $this-&gt;navbar($container); 
+            ?&gt;
         &lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
     &lt;/div&gt;&lt;!-- /.container-fluid --&gt;
 &lt;/nav&gt;</strong>
@@ -259,7 +276,7 @@ $form->addElement('week', 'week', array('label' => 'Week'));
 $form->addElement('search', 'search', array('label' => 'Search'));
 </strong></pre>   
 
-    <p>And a new element was created for <a href="http://getbootstrap.com/css/#forms-controls-static" target="_blank">Bootstrap's form static text</a>.</p>
+<p>And a new element was created for <a href="http://getbootstrap.com/css/#forms-controls-static" target="_blank">Bootstrap's form static text</a>.</p>
         
 <pre>
 <strong>$form->addElement('staticText', 'uneditable', array(
@@ -268,12 +285,12 @@ $form->addElement('search', 'search', array('label' => 'Search'));
 ));
 </strong></pre>
 
-        <p>Add the form the the view.</p>
+<p>Add the form the the view.</p>
 <pre>
 <strong>$this-&gt;view-&gt;form = $form;</strong>
 </pre>      
     
-        <p>Now, print the form in your view and it will be rendered in bootstrap's format.</p>
+<p>Now, print the form in your view and it will be rendered in bootstrap's format.</p>
 <pre>
 <strong>&lt;?php echo $this-&gt;form; ?&gt;</strong>
 </pre>      
