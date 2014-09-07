@@ -9,14 +9,18 @@
 - Download <strong>Jquery</strong> in <a href="http://jquery.com/download/" target="_blank">http://jquery.com/download/</a> and put it in your Zend Framework project's <code>public</code> folder;
 - Add to your <code>HTML</code> in <code>layout.phtml</code> the bootstrap and jquery css and js files. Something like:
 <pre>
-&lt;link href=&quot;&lt;?php echo $this-&gt;baseUrl('bootstrap/css/bootstrap.min.css'); ?&gt;&quot; rel=&quot;stylesheet&quot;&gt;
-&lt;script src=&quot;&lt;?php echo $this-&gt;baseUrl('jquery/1.11.1/jquery.min.js'); ?&gt;&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;&lt;?php echo $this-&gt;baseUrl('bootstrap/js/bootstrap.min.js'); ?&gt;&quot;&gt;&lt;/script&gt;</pre>
+&lt;link href=&quot;&lt;?php echo $this-&gt;baseUrl('bootstrap/css/bootstrap.min.css'); ?&gt;&quot;
+rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;&lt;?php echo $this-&gt;baseUrl('jquery/1.11.1/jquery.min.js'); ?&gt;&quot;
+&gt;&lt;/script&gt;
+&lt;script src=&quot;&lt;?php echo $this-&gt;baseUrl('bootstrap/js/bootstrap.min.js'); ?&gt;&quot;&gt;
+&lt;/script&gt;</pre>
 - Add the following lines to your <code>application.ini</code>:
 <pre>
 autoloaderNamespaces[] = "Bootstrap"
 resources.view.helperPath.Bootstrap_View_Helper = "Bootstrap/View/Helper"
-resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper = "Bootstrap/Controller/Action/Helper"
+resources.frontController.actionHelperPaths.Bootstrap_Controller_Action_Helper = 
+"Bootstrap/Controller/Action/Helper"
 </pre>
 - Use the library classes in your project.
 
