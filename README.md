@@ -55,8 +55,8 @@ false, false, 'p'); ?&gt;</strong></pre>
 <strong>$this-&gt;getHelper('Alerts')-&gt;addMessage('This is a message.', 'alert', true);
 
 <span class="text-muted">//Or you can call one of the methods for specific types of message</span>
-<strong>$this-&gt;getHelper('Alerts')-&gt;addAlert('&lt;strong&gt;Alert: &lt;/strong&gt;This is an alert message',
-false);</strong>
+<strong>$this-&gt;getHelper('Alerts')-&gt;addAlert('&lt;strong&gt;Alert: &lt;/strong&gt;This is an alert 
+message', false);</strong>
 <strong>$this-&gt;getHelper('Alerts')-&gt;addSuccess('&lt;strong&gt;Success: &lt;/strong&gt;This is a success 
 message', false);</strong>
 <strong>$this-&gt;getHelper('Alerts')-&gt;addInfo('&lt;strong&gt;Info: &lt;/strong&gt;This is an info message',
