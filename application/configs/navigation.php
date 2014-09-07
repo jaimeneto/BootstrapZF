@@ -4,13 +4,21 @@ return array(
     array(
         'label' => 'Home',
         'id'    => 'homepage',
-        'uri'   => '/',
+        'action' => 'index',
+        'controller' => 'index',
         'pages' => array(
             array(
                 'label' => 'Home',
                 'id'    => 'home-link',
-                'uri'   => '/',
+                'action' => 'index',
+                'controller' => 'index',
                 'icon'  => 'glyphicon glyphicon-home'
+            ),
+            array(
+                'label' => 'Tutorial',
+                'action' => 'tutorial',
+                'controller' => 'index',
+                'icon'  => 'glyphicon glyphicon-book'
             ),
             array(
                 'label' => 'Zend',
@@ -20,7 +28,6 @@ return array(
             array(
                 'label' => 'Page 2',
                 'controller' => 'page2',
-                'active' => true,
                 'pages' => array(
                     array(
                         'label' => 'Page 2.1',
@@ -28,7 +35,6 @@ return array(
                         'controller' => 'page2',
                         'class' => 'special-one',
                         'title' => 'This element has a special class',
-                        'active' => true,
                         'icon'  => 'glyphicon glyphicon-star'
                     ),
                     array(
@@ -50,13 +56,6 @@ return array(
                         'title' => 'This element has a special class too'
                     )
                 )
-            ),
-            array(
-                'label' => 'Page 3',
-                'action' => 'index',
-                'controller' => 'index',
-                'module' => 'mymodule',
-                'reset_params' => false
             ),
         )
     ),

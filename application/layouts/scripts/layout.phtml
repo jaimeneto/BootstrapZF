@@ -12,10 +12,10 @@
     <!-- Optional Bootstrap Theme -->
     <link href="<?php echo $this->baseUrl('bootstrap/css/bootstrap-theme.min.css'); ?>" rel="stylesheet" id="bs-theme-stylesheet">
 </head>
-<body>
+<body data-spy="scroll" data-target="#affix-nav">
 
     <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
+        <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <?php echo $this->navbarHeader('BootstrapZF', 'navbar-collapse-1'); ?>
 
@@ -38,13 +38,9 @@
     
     <main class="container">
     
-        <?php echo $this->breadcrumbs(); ?>
-        
-        <h1>Bootstrap Library for Zend Framework</h1>
-            
-        <article>
+        <section>
             <?php echo $this->layout()->content; ?>
-        </article>
+        </section>
 
     </main>
     

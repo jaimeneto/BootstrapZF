@@ -10,18 +10,20 @@ class IndexController extends Zend_Controller_Action
     
     public function indexAction()
     {
+        $this->_helper->redirector('manual');
+    }
+    
+    public function tutorialAction()
+    {
         $form = new Application_Form_Test();
 
-        if ($this->_request->isPost()) {
-            $data = $this->_request->getPost();
-            if ($form->isValid($data)) {
-                $this->getHelper('Alerts')->addSuccess('<strong>Success: </strong>Data successfully submited', false);
-            } else {
-                $this->getHelper('Alerts')->addDanger('<strong>Error: </strong>The form contain errors', false);
-            }
-        } else {
-            $this->getHelper('Alerts')->addInfo('<strong>Info: </strong>Submit the form to see an alert', false);
-        }
+        $this->_helper->alerts('This is a direct message', 'success', true);
+        $this->getHelper('Alerts')->addMessage('This is a message using addMessage().', 'alert', true);
+        $this->getHelper('Alerts')->addAlert('<strong>Alert: </strong>This is an alert message using addAlert().', false);
+        $this->getHelper('Alerts')->addSuccess('<strong>Success: </strong>This is a success message using addSuccess().', false);
+        $this->getHelper('Alerts')->addInfo('<strong>Info: </strong>This is an info message using addInfo().', false);
+        $this->getHelper('Alerts')->addWarning('<strong>Success: </strong>This is an warning message using addWarning().', false);
+        $this->getHelper('Alerts')->addDanger('<strong>Success: </strong>This is a danger message using addDanger().', false);
         
         $carousel = array(
             array(

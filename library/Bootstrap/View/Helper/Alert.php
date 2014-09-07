@@ -27,6 +27,15 @@ class Bootstrap_View_Helper_Alert extends Zend_View_Helper_Abstract
         'DANGER'    => 'alert alert-danger'
     );
 
+    /**
+     * 
+     * @param string  $text
+     * @param string  $type
+     * @param boolean $closeButton
+     * @param boolean $escape
+     * @param string  $tag
+     * @return string
+     */
     public function alert($text, $type = 'ALERT', $closeButton=true, 
         $escape=true, $tag='div')
     {

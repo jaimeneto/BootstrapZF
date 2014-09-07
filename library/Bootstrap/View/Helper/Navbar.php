@@ -89,6 +89,14 @@ class Bootstrap_View_Helper_Navbar
             $liClasses = array();
             if ($page->isActive()) {
                 $liClasses[] = 'active';
+            } else {
+                // activate parent page if subpage is active
+                foreach ($page->pages as $subpage) {
+                    if ($subpage->isActive()) {
+                        $liClasses[] = 'active';
+                        break;
+                    }
+                }
             }
             
             if ($dropdown) {

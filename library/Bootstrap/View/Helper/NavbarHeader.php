@@ -20,7 +20,7 @@
 class Bootstrap_View_Helper_NavbarHeader extends Zend_View_Helper_Abstract
 {
 
-    public function navbarHeader($brand, $target)
+    public function navbarHeader($brand = '', $target = 'navbar-target')
     {        
         $html = '<div class="navbar-header">'
               . '<button type="button" class="navbar-toggle" '

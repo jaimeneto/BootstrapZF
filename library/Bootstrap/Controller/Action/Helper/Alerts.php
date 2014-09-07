@@ -90,7 +90,7 @@ class Bootstrap_Controller_Action_Helper_Alerts
      */
     public function addMessage($text, $type = self::ALERT, $escape = true)
     {
-        if (!(is_string($text) && in_array($type, self::$_types))) {
+        if (!(is_string($text) && in_array(strtoupper($type), self::$_types))) {
             throw new InvalidArgumentException();
         }
 

@@ -17,6 +17,32 @@ class Application_Form_Test extends Bootstrap_Form_Horizontal
             'label'       => 'Password'
         ));
         
+        $this->addElement('textarea', 'textarea', array(
+            'label'       => 'Textarea',
+            'rows'        => 5
+        ));
+        
+        $this->addElement('checkbox', 'checkme', array(
+            'label'    => 'Check or not check', 
+        ));
+        
+        $this->addElement('multiCheckbox', 'checkallme', array(
+            'label'        => 'Many options', 
+            'multiOptions' => array('Option 1', 'Option 2', 'Option 3'),
+            'inline'       => true
+        ));
+        
+        $this->addElement('radio', 'radiobuttons', array(
+            'label'        => 'Select one', 
+            'multiOptions' => array('Option 1', 'Option 2', 'Option 3'),
+            'inline'       => true
+        ));
+        
+        $this->addElement('select', 'selectme', array(
+            'label'        => 'Select here', 
+            'multiOptions' => array('Option 1', 'Option 2', 'Option 3'),
+        ));
+        
         $this->addElement('number', 'number', array(
             'label'       => 'Number',
             'min'         => 1,
@@ -65,33 +91,7 @@ class Application_Form_Test extends Bootstrap_Form_Horizontal
         
         $this->addElement('search', 'search', array(
             'label'       => 'Search',
-        ));
-        
-        $this->addElement('textarea', 'textarea', array(
-            'label'       => 'Textarea',
-            'rows'        => 5
-        ));
-        
-        $this->addElement('checkbox', 'checkme', array(
-            'label'    => 'Check or not check', 
-        ));
-        
-        $this->addElement('multiCheckbox', 'checkallme', array(
-            'label'        => 'Many options', 
-            'multiOptions' => array('Option 1', 'Option 2', 'Option 3'),
-            'inline'       => true
-        ));
-        
-        $this->addElement('radio', 'radiobuttons', array(
-            'label'        => 'Select one', 
-            'multiOptions' => array('Option 1', 'Option 2', 'Option 3'),
-            'inline'       => true
-        ));
-        
-        $this->addElement('select', 'selectme', array(
-            'label'        => 'Select here', 
-            'multiOptions' => array('Option 1', 'Option 2', 'Option 3'),
-        ));
+        ));        
         
         $this->addElement('staticText', 'uneditable', array(
             'label' => 'Static text', 
