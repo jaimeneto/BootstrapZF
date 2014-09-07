@@ -90,19 +90,19 @@ message', false);</strong>
     array(
         'src'           =&gt; $this-&gt;view-&gt;baseUrl('img/carousel-1.jpg'),
         'caption-title' =&gt; 'First slide label',
-        'caption'       =&gt; 'Nulla vitae elit libero, a pharetra augue mollis interdum.',
+        'caption'       =&gt; 'Nulla vitae elit libero, a pharetra augue mollis interdum',
         'alt'           =&gt; '900x500'
     ),
     array(
         'src'           =&gt; $this-&gt;view-&gt;baseUrl('img/carousel-2.jpg'),
         'caption-title' =&gt; 'Second slide label',
-        'caption'       =&gt; 'Nulla vitae elit libero, a pharetra augue mollis interdum.',
+        'caption'       =&gt; 'Nulla vitae elit libero, a pharetra augue mollis interdum',
         'alt'           =&gt; '900x500'
     ),
     array(
         'src'           =&gt; $this-&gt;view-&gt;baseUrl('img/carousel-3.jpg'),
         'caption-title' =&gt; 'Third slide label',
-        'caption'       =&gt; 'Nulla vitae elit libero, a pharetra augue mollis interdum.',
+        'caption'       =&gt; 'Nulla vitae elit libero, a pharetra augue mollis interdum',
         'alt'           =&gt; '900x500'
     ),    
 );?&gt;</strong>
@@ -172,8 +172,8 @@ echo $this-&gt;navbar($container);
         &lt;?php echo $this-&gt;navbarHeader('BootstrapZF', 'navbar-collapse-1'); ?&gt;
         &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-collapse-1&quot;&gt;
             &lt;?php 
-                $nav = Zend_Registry::get('Zend_Navigation')-&gt;findById('homepage');
-                echo $this-&gt;navbar($nav); 
+                $container = Zend_Registry::get('Zend_Navigation')-&gt;findById('home');
+                echo $this-&gt;navbar($container); 
             ?&gt;
         &lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
     &lt;/div&gt;&lt;!-- /.container-fluid --&gt;
