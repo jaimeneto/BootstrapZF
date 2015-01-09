@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/View/Helper/FormCheckbox.php';
+
 /**
  * Helper to generate a "checkbox" element with the Bootstrap UI.
  *

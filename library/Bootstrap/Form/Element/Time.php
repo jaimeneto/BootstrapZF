@@ -9,6 +9,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Bootstrap/Form/Element/Text.php';
+
 /**
  * A form time element
  *

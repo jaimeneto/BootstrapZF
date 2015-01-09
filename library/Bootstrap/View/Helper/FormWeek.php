@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Bootstrap/View/Helper/FormText.php';
+
 class Bootstrap_View_Helper_FormWeek extends Bootstrap_View_Helper_FormText
 {
     protected $_inputType = 'week';

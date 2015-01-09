@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/View/Helper/FormMultiCheckbox.php';
+
 /**
  * A helper to render a set of checkboxes
  *
@@ -43,12 +45,25 @@ class Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_FormMulti
             }
         }
 
+        $buttonType = isset($attribs['buttonType']) 
+                    ? $attribs['buttonType'] 
+                    : null;
+        
         $inline = isset($attribs['inline']) && $attribs['inline'];
-        unset($attribs['inline']);
-        if ($inline) {
+        
+        unset($attribs['buttonType'], $attribs['inline']);
+        
+        if ($buttonType) {
             $label_attribs['class'] = isset($label_attribs['class']) 
-                    ? trim($label_attribs['class'] . ' checkbox-inline')
-                    : 'checkbox-inline';
+                    ? trim($label_attribs['class'] . ' btn btn-' . $buttonType)
+                    : 'btn btn-' . $buttonType;
+            
+        } else {
+            if ($inline) {
+                $label_attribs['class'] = isset($label_attribs['class']) 
+                        ? trim($label_attribs['class'] . ' checkbox-inline')
+                        : 'checkbox-inline';
+            }
         }
 
         $labelPlacement = 'append';
@@ -68,7 +83,7 @@ class Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_FormMulti
         $options = (array) $options;
 
         // build the element
-        $xhtml = '';
+        $html = '';
         $list  = array();
 
         // should the name affect an array collection?
@@ -109,10 +124,13 @@ class Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_FormMulti
                 $disabled = ' disabled="disabled"';
             }
 
+            $labelAttribs = $label_attribs;
+            
             // is it checked?
             $checked = '';
             if (in_array($opt_value, $value)) {
                 $checked = ' checked="checked"';
+                $labelAttribs['class'] .= ' active';
             }
 
             // generate ID
@@ -125,7 +143,7 @@ class Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_FormMulti
             
             // Wrap the radios in labels
             $radio .= '<label'
-                    . $this->_htmlAttribs($label_attribs) . '>'
+                    . $this->_htmlAttribs($labelAttribs) . '>'
                     . '<input type="' . $this->_inputType . '"'
                     . ' name="' . $name . '"'
                     . ' id="' . $optId . '"'
@@ -146,9 +164,15 @@ class Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_FormMulti
         }
 
         // done!
-        $xhtml .= implode($listsep, $list);
+        $html .= implode($listsep, $list);
 
-        return $xhtml;
+        if ($buttonType) {
+            $html = '<div class="btn-group" data-toggle="buttons">'
+                   . $html
+                   . '</div>';
+        }
+        
+        return $html;
     }
 
 }

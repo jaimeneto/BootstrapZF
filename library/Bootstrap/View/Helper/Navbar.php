@@ -9,6 +9,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/View/Helper/Navigation/Menu.php';
+
 /**
  * Helper to generate a navbar with the Bootstrap UI.
  *
@@ -31,6 +33,9 @@ class Bootstrap_View_Helper_Navbar
 
     public function navbar(Zend_Navigation_Container $container = null)
     {
+        if (null === $container) {
+            $container = $this->view->navigation()->getContainer();
+        }
         if (null !== $container) {
             $this->setContainer($container);
         }

@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/View/Helper/FormFile.php';
+
 /**
  * Helper to generate a "file" element with the Bootstrap UI
  *

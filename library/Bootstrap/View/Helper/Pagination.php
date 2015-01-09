@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/View/Helper/PaginationControl.php';
+
 /**
  * Helper to generate a pagination element in Bootstrap's format.
  *
@@ -33,9 +35,10 @@ class Bootstrap_View_Helper_Pagination
      * the defaults will be used (if set).
      *
      * @param  Zend_Paginator (Optional) $paginator
-     * @param  array|string $params (Optional) params to pass to the partial
+     * @param  string $pageParam (Optional) name of the parameter for page
+     * @param  string $size size [default|large|small]
      * @return string
-     * @throws Bootstrap_View_Exception
+     * @throws Zend_View_Exception
      */
     public function pagination(Zend_Paginator $paginator = null, 
             $pageParam = 'page', $size = 'default')

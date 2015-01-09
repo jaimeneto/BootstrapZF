@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/Form/Decorator/FormElements.php';
+
 /**
  * Renders the form body
  *

@@ -165,6 +165,14 @@ class Bootstrap_Controller_Action_Helper_Alerts
     }
 
     /**
+     * Alias for addDanger
+     */
+    public function addError($msg, $escape = true)
+    {
+        return $this->addDanger($msg, $escape);
+    }
+    
+    /**
      * Retorna as mensagens atualmente adicionada a sessao
      *
      * @param string $type   Filtro de tipo

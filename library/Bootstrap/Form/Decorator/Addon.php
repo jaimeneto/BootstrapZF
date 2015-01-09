@@ -9,6 +9,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/Form/Decorator/Abstract.php';
+
 /**
  * Renders an form field with an add on (appended or prepended)
  *

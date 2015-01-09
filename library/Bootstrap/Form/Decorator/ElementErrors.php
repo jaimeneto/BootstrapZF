@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/Form/Decorator/Abstract.php';
+
 /**
  * A decorator to render the form element errors
  *

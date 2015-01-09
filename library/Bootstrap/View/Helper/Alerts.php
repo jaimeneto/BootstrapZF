@@ -9,6 +9,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/View/Helper/Abstract.php';
+
 /**
  * Helper to generate a list of alerts with the Bootstrap UI.
  *

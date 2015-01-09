@@ -9,6 +9,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/Form/Element/Select.php';
+
 /**
  * A form select element
  *

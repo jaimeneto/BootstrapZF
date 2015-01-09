@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A form text element definition
+ * A form textarea element definition
  *
  * @category Forms
  * @package Bootstrap_Form
@@ -9,8 +9,10 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/Form/Element/Textarea.php';
+
 /**
- * A form text element
+ * A form textarea element
  *
  * @category Forms
  * @package Bootstrap_Form

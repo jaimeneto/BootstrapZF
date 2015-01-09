@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/Form/Decorator/HtmlTag.php';
+
 /**
  * Defines a decorator to wrap all the Bootstrap form elements
  *
@@ -30,7 +32,7 @@ class Bootstrap_Form_Decorator_HtmlTag extends Zend_Form_Decorator_HtmlTag
 //            }
 //        }
         
-        if ($element->hasErrors()) {
+        if (method_exists($element, 'hasErrors') && $element->hasErrors()) {
             $class .= ' has-error';
         }
         

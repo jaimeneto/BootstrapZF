@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/View/Helper/FormElement.php';
+
 /**
  * Helper to generate an uneditable form textfield.
  *
@@ -42,8 +44,13 @@ class Bootstrap_View_Helper_FormStaticText extends Zend_View_Helper_FormElement
         $attribs['class'] .= ' form-control-static';
         $attribs['class'] = trim($attribs['class']);
 
+        if (!isset($attribs['escape']) || $attribs['escape']) {
+            $value = $this->view->escape($value);
+        }
+        
         $html = '<p '. $this->_htmlAttribs($attribs) .'>' 
-                . $this->view->escape($value) . '</p>';
+              . $value 
+              . '</p>';
         
         return $html;
     }

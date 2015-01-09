@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/View/Helper/FormElement.php';
+
 /**
  * Helper to generate a set of radio button elements
  *
@@ -72,12 +74,25 @@ class Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormElement
             }
         }
 
+        $buttonType = isset($attribs['buttonType']) 
+                    ? $attribs['buttonType'] 
+                    : null;
+        
         $inline = isset($attribs['inline']) && $attribs['inline'];
-        unset($attribs['inline']);
-        if ($inline) {
+        
+        unset($attribs['buttonType'], $attribs['inline']);
+        
+        if ($buttonType) {
             $label_attribs['class'] = isset($label_attribs['class']) 
-                    ? trim($label_attribs['class'] . ' radio-inline')
-                    : 'radio-inline';
+                    ? trim($label_attribs['class'] . ' btn btn-' . $buttonType)
+                    : 'btn btn-' . $buttonType;
+            
+        } else {
+            if ($inline) {
+                $label_attribs['class'] = isset($label_attribs['class']) 
+                        ? trim($label_attribs['class'] . ' radio-inline')
+                        : 'radio-inline';
+            }
         }
 
         $labelPlacement = 'append';
@@ -97,7 +112,7 @@ class Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormElement
         $options = (array) $options;
 
         // build the element
-        $xhtml = '';
+        $html = '';
         $list  = array();
 
         // should the name affect an array collection?
@@ -138,10 +153,13 @@ class Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormElement
                 $disabled = ' disabled="disabled"';
             }
 
+            $labelAttribs = $label_attribs;
+            
             // is it checked?
             $checked = '';
             if (in_array($opt_value, $value)) {
                 $checked = ' checked="checked"';
+                $labelAttribs['class'] .= ' active';
             }
 
             // generate ID
@@ -154,7 +172,7 @@ class Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormElement
             
             // Wrap the radios in labels
             $radio .= '<label'
-                    . $this->_htmlAttribs($label_attribs) . '>'
+                    . $this->_htmlAttribs($labelAttribs) . '>'
                     . (('prepend' == $labelPlacement) ? $opt_label : '')
                     . '<input type="' . $this->_inputType . '"'
                     . ' name="' . $name . '"'
@@ -176,8 +194,14 @@ class Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormElement
         }
 
         // done!
-        $xhtml .= implode($listsep, $list);
+        $html .= implode($listsep, $list);
 
-        return $xhtml;
+        if ($buttonType) {
+            $html = '<div class="btn-group" data-toggle="buttons">'
+                   . $html
+                   . '</div>';
+        }
+        
+        return $html;
     }
 }

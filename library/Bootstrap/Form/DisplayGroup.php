@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/Form/DisplayGroup.php';
+
 /**
  * Displays the fieldsets the Bootstrap's way
  *

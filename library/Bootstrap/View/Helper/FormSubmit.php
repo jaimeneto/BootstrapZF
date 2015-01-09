@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Bootstrap/View/Helper/FormButton.php';
+
 /**
  * Helper to generate a submit button element
  *

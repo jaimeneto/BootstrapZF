@@ -9,6 +9,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/Form/Element/Radio.php';
+
 /**
  * Bootstrap radio buttons
  *

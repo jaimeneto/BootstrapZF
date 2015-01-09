@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Zend/View/Helper/FormElement.php';
+
 class Bootstrap_View_Helper_FormText extends Zend_View_Helper_FormElement
 {
     protected $_inputType = 'text';

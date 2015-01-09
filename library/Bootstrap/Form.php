@@ -7,6 +7,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/Form.php';
+
 /**
  * Form for the Bootstrap UI
  *
@@ -90,14 +92,14 @@ abstract class Bootstrap_Form extends Zend_Form
                 $options = $options->toArray();
             }
 
-            if ( is_array($options) && !array_key_exists('decorators', $options) ) {
+            if (is_array($options) && !array_key_exists('decorators', $options)) {
                 $options['decorators'] = $this->_elementDecorators;
             }
         }
 
         // no decorators for hidden elements
         if (in_array($type, array('hidden', 'hash'))) {
-            $options["decorators"] = array('ViewHelper');
+            $options['decorators'] = array('ViewHelper');
         }
 
         return parent::createElement($type, $name, $options);
@@ -186,7 +188,11 @@ abstract class Bootstrap_Form extends Zend_Form
             }
             
             if ($element instanceof Zend_Form_Element_Checkbox) {
-                $this->_cutomizeCheckboxElement($element);
+                $this->_customizeCheckboxElement($element);
+            }
+            
+            if ($element instanceof Zend_Form_Element_File) {
+                $this->_customizeFileElement($element);
             }
         }
 
@@ -196,5 +202,20 @@ abstract class Bootstrap_Form extends Zend_Form
         return parent::render($view);
     }
 
-    abstract protected function _cutomizeCheckboxElement(&$element);
+    abstract protected function _customizeCheckboxElement(&$element);
+    
+    protected function _customizeFileElement(&$element)
+    {
+        $decorators = $element->getDecorators();
+        $newDecorators = array();
+        foreach($decorators as $name => $decorator) {
+            if ($name == 'Zend_Form_Decorator_ViewHelper') {
+                $name = 'Zend_Form_Decorator_File';
+                $decorator = new $name;
+            }
+            $newDecorators[$name] = $decorator;
+        }
+        
+        $element->setDecorators($newDecorators);
+    }
 }

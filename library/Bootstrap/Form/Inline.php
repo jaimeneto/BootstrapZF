@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Bootstrap/Form.php';
+
 /**
  * Base form class for inline forms. The inline form displays the form elements as
  * "inline-blocks", and there is no wrapper for themselves.
@@ -27,9 +29,9 @@ class Bootstrap_Form_Inline extends Bootstrap_Form
 
         $options['elementDecorators'] = array(
             'ViewHelper',
+            'Addon',
             'ElementErrors',
             array('Description', array('tag' => 'span', 'class' => 'help-block')),
-            'Addon',
             array('Label', array('class' => 'control-label')),
             array('HtmlTag', array('tag' => 'div', 'class' => 'form-group')),
         );
@@ -37,7 +39,7 @@ class Bootstrap_Form_Inline extends Bootstrap_Form
         parent::__construct($options);
     }
     
-    protected function _cutomizeCheckboxElement(&$element)
+    protected function _customizeCheckboxElement(&$element)
     {
         $element->setAttrib('inputLabel', $element->getLabel());
         $element->setDecorators(array(

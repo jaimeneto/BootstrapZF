@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Zend/View/Helper/FormElement.php';
+
 /**
  * Helper to generate a button element
  *
@@ -57,7 +59,7 @@ class Bootstrap_View_Helper_FormButton extends Zend_View_Helper_FormElement
         $html = '<button type="' . $this->_buttonType . '"'
               . ' name="' . $this->view->escape($name) . '"'
               . $id
-              . ' value="' . $this->view->escape($value) . '"'
+               . ' value="' . $this->view->escape(trim(strip_tags($value))) . '"'
               . $disabled
               . $this->_htmlAttribs($attribs)
               . '>'

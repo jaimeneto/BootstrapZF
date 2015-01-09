@@ -8,6 +8,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Bootstrap/Form.php';
+
 /**
  * Base class for default form style
  *
@@ -27,9 +29,9 @@ class Bootstrap_Form_Vertical extends Bootstrap_Form
     {
         $options['elementDecorators'] = array(
             'ViewHelper',
+            'Addon',
             'ElementErrors',
             array('Description', array('tag' => 'span', 'class' => 'help-block')),
-            'Addon',
             array('Label', array('class' => 'control-label')),
             array('HtmlTag', array('tag' => 'div', 'class' => 'form-group')),
         );
@@ -39,7 +41,7 @@ class Bootstrap_Form_Vertical extends Bootstrap_Form
         parent::__construct($options);
     }
     
-    protected function _cutomizeCheckboxElement(&$element)
+    protected function _customizeCheckboxElement(&$element)
     {
         $element->setAttrib('inputLabel', $element->getLabel());
         $element->setDecorators(array(

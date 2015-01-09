@@ -9,6 +9,8 @@
  * @author Jaime Neto <contato@jaimeneto.com>
  */
 
+require_once 'Bootstrap/Form/Element/Text.php';
+
 /**
  * A form date element
  *
@@ -23,7 +25,8 @@ class Bootstrap_Form_Element_Date extends Bootstrap_Form_Element_Text
 
     public function __construct($spec, $options = null)
     {
-        $this->addValidator(new Zend_Validate_Date());
+        $format = 'yyyy-MM-dd';
+        $this->addValidator(new Zend_Validate_Date(array('format' => $format)));
         
         parent::__construct($spec, $options);
     }
