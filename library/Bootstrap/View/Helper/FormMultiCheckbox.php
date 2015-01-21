@@ -130,7 +130,11 @@ class Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_FormMulti
             $checked = '';
             if (in_array($opt_value, $value)) {
                 $checked = ' checked="checked"';
-                $labelAttribs['class'] .= ' active';
+                if (isset($labelAttribs['class'])) {
+                    $labelAttribs['class'] .= ' active';
+                } else {
+                    $labelAttribs['class'] = 'active';
+                }
             }
 
             // generate ID

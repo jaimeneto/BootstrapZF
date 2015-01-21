@@ -175,7 +175,7 @@ class Bootstrap_Controller_Action_Helper_Alerts
     /**
      * Retorna as mensagens atualmente adicionada a sessao
      *
-     * @param string $type   Filtro de tipo
+     * @param string $type   Tipo de mensagem
      * @return array
      */
     public function getMessages($type = null, $cleanMessages = true)
@@ -212,11 +212,20 @@ class Bootstrap_Controller_Action_Helper_Alerts
     /**
      * Apaga as mensagens atualmente adicionadas a sessao
      *
+     * @param string $type   Tipo de mensagem
      * @return void
      */
-    public function cleanMessages()
+    public function cleanMessages($type = null)
     {
-        $this->_namespace->messages = array();
+        $messages = array();
+        if ($type) {
+            foreach($this->_namespace->messages as $message) {
+                if ($message['type'] != $type) {
+                    $messages[] = $message;
+                }
+            }
+        }
+        $this->_namespace->messages = $messages;
     }
 
     /**

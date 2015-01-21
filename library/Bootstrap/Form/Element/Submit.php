@@ -129,7 +129,6 @@ class Bootstrap_Form_Element_Submit extends Zend_Form_Element_Submit
         unset($options['iconLeft'], $options['iconRight'], $options['icon']);
         
         $classes = array_unique($classes);
-
         $options['class'] = trim(implode(' ', $classes));
 
         parent::__construct($spec, $options);
