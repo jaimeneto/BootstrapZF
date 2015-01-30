@@ -25,16 +25,12 @@ class Bootstrap_Form_Decorator_HtmlTag extends Zend_Form_Decorator_HtmlTag
         $class = $this->getOption('class');
         
         $element = $this->getElement();
-        
-//        if (strstr($class, 'form-group')) {
-//            if ($element instanceof Zend_Form_Element_Checkbox) {
-//                $class = str_replace('form-group', 'checkbox', $class);
-//            }
-//        }
-        
+
         if (method_exists($element, 'hasErrors') && $element->hasErrors()) {
             $class .= ' has-error';
         }
+        
+        $class .= ' ' . strtolower(str_replace('_', '-', get_class($element)));
         
         $class = trim($class);
         

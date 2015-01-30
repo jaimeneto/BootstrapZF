@@ -29,7 +29,7 @@ class Bootstrap_Form_Horizontal extends Bootstrap_Form
         $this->setDisposition(self::DISPOSITION_HORIZONTAL);
 
         $colWrapperClass = $this->colWrapper != 12
-                ? ' col-md-' . $this->colWrapper
+                ? ' col-sm-' . $this->colWrapper
                 : '';
         
         $options['elementDecorators'] = array(
@@ -47,6 +47,10 @@ class Bootstrap_Form_Horizontal extends Bootstrap_Form
     
     protected function _customizeCheckboxElement(&$element)
     {
+        $colWrapperClass = $this->colWrapper != 12
+                ? ' col-sm-' . $this->colWrapper
+                : '';
+        
         $element->setAttrib('inputLabel', $element->getLabel());
         $element->setDecorators(array(
             'ViewHelper',
@@ -54,6 +58,7 @@ class Bootstrap_Form_Horizontal extends Bootstrap_Form
             array('Description', array('tag' => 'span', 'class' => 'help-block')),
             array(array('wrapper' => 'HtmlTag'), array('tag' => 'div', 'class' => 'checkbox')),
             array(array('column' => 'HtmlTag'), array('tag' => 'div', 'class' => 'col-sm-offset-' . $this->colLabel . ' col-sm-' . $this->colInput)),
+            array(array('group' => 'HtmlTag'), array('tag' => 'div', 'class' => 'form-group' . $colWrapperClass)),
         ));
     }
 }

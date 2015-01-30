@@ -86,7 +86,7 @@ class Bootstrap_View_Helper_Navbar
                     $attribs[] = $classes 
                                ? 'class="' . implode(' ', $classes) . '"'
                                : '';
-                } else if ($page->$attr) {
+                } else if ($attr != 'target' && $page->$attr) {
                     $attribs[] = $attr . '="' . $page->$attr . '"';
                 }
             }
@@ -147,7 +147,15 @@ class Bootstrap_View_Helper_Navbar
                 $html[] = '<li' . ($subpage->isActive() 
                         ? ' class="active"' 
                         : '') . '>';
-                $html[] = '<a href="' . $subpage->getHref() . '">';
+                
+                $spAttribs = array('href="' . $subpage->getHref() . '"');
+                foreach($this->_tagAttribs as $attr) {
+                    if (is_string($subpage->$attr)) {
+                        $spAttribs[] = $attr . '="' . $subpage->$attr . '"';
+                    }
+                }
+                
+                $html[] = '<a ' . implode(' ', $spAttribs) . '>';
 
                 if ($subpage->get('icon')) {
                     $html[] = '<span class="' . $subpage->get('icon') . '"></span>';
